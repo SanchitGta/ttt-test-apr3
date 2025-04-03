@@ -68,8 +68,18 @@ function App() {
       <p>O Wins: {oWinCount}</p>
       <p>{status}</p>
       <GameBoard board={board} onCellClick={handleCellClick} />
+      <button onClick={resetGame}>Reset Game</button>
     </div>
   );
+
+  function resetGame() {
+    setBoard(Array(9).fill(null));
+    setCurrentPlayer("X");
+    setWinner(null);
+    setStatus("Current Player: X");
+    setXWinCount(0);
+    setOWinCount(0);
+  }
 }
 
 export default App;
