@@ -27,9 +27,9 @@ function App() {
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         const winningPlayer = board[a];
         if (winningPlayer === "X") {
-          setXWinCount(xWinCount + 1);
+          setXWinCount((prevCount) => prevCount + 1);
         } else {
-          setOWinCount(oWinCount + 1);
+          setOWinCount((prevCount) => prevCount + 1);
         }
         return winningPlayer;
       }
@@ -78,8 +78,6 @@ function App() {
     setCurrentPlayer("X");
     setWinner(null);
     setStatus("Current Player: X");
-    setXWinCount(0);
-    setOWinCount(0);
   }
 }
 
