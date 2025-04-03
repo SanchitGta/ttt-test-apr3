@@ -3,6 +3,8 @@ import GameBoard from './GameBoard';
 import { useState, useEffect } from 'react';
 
 function App() {
+  const [xWinCount, setXWinCount] = useState(0);
+  const [oWinCount, setOWinCount] = useState(0);
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -22,7 +24,13 @@ function App() {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        return board[a];
+        const winningPlayer = board[a];
+        if (winningPlayer === "X") {
+          setXWinCount(xWinCount + 1);
+        } else {
+          setOWinCount(oWinCount + 1);
+        }
+        return winningPlayer;
       }
     }
     return null;
@@ -54,10 +62,13 @@ function App() {
   }, [winner, currentPlayer]);
 
   return (
-    
-      {status}
+    <div>
+      <h1>Tic Tac Toe</h1>
+      <p>X Wins: {xWinCount}</p>
+      <p>O Wins: {oWinCount}</p>
+      <p>{status}</p>
       <GameBoard board={board} onCellClick={handleCellClick} />
-    
+    </div>
   );
 }
 
