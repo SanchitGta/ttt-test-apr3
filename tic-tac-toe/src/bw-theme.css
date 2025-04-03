@@ -1,0 +1,35 @@
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+.square {
+  background-color: #eee;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.square:hover {
+  background-color: #ddd;
+}
+
+.board {
+  border: 2px solid #000;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .square {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+  }
+}

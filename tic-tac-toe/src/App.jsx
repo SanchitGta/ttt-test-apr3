@@ -1,4 +1,5 @@
 import './App.css';
+import './bw-theme.css';
 import GameBoard from './GameBoard';
 import { useState, useEffect } from 'react';
 
