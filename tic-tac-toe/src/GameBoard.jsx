@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Square from './Square';
 
-function GameBoard({ currentPlayer, onCellClick }) {
-  const [board, setBoard] = useState(Array(9).fill(null));
-
+function GameBoard({ board, onCellClick }) {
   const handleClick = (index) => {
     if (board[index] || !onCellClick) {
       return;
     }
 
-    const newBoard = [...board];
-    newBoard[index] = currentPlayer;
-    setBoard(newBoard);
     onCellClick(index);
   };
 
